@@ -34,11 +34,16 @@ De cette manière, le projet console pourra utiliser des classes codées dans le
 Depuis le dossier src/Isen.DotnetCode
 * lancer la commande : dotnet add reference ..\Isen.Dotnet.Library\
 
-## Vérification
-la hiérarchie est 
-* ASP.net
-    * src/
-        * Isen.Dotnet.Library
-        * Isen.DotnetCode
-    * README.md
+### Création de tests unitaire
 
+Créer un nouveau dossier "test" à la racine
+Y créer un dossier "Isen.Dotnet.UniTests"
+
+sous src/ créé un dossier Isen.DotnetCode
+Depuis ce dossier
+* lancer la commande : dotnet new xunit
+ceci crée un nouveau projet de test unitaire
+Depuis le dossier \test\Isen.Dotnet.UniTests\
+* lancer la commande : dotnet add reference ..\..\src\Isen.Dotnet.Library\
+Depuis le dossier racine (ASP.net)
+* lancer la commande : dotnet sln add test\Isen.Dotnet.UniTests\
