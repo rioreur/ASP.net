@@ -13,7 +13,7 @@ namespace Isen.DotnetCode
 
             // MyCollection test d'initialisation
             var array = new String[] {"Je", "suis", "presque", "une", "phrase"};
-            MyCollection myCollection = new MyCollection(array);
+            MyCollection<string> myCollection = new MyCollection<string>(array);
             Console.WriteLine(myCollection);
             // MyCollection test de "Add"
             myCollection.Add("mais");
