@@ -60,6 +60,13 @@ namespace Isen.Dotnet.Library
             return -1;
         }
 
+        // Accesseur indexeur (opérateur [])
+        public string this[int index]
+        {
+            get => _values[index];
+            set => _values[index] = value;
+        }
+
         // Override de la fonction ToString
         public override string ToString()
         {

@@ -22,6 +22,9 @@ namespace Isen.DotnetCode
             Console.WriteLine(myCollection);
             Console.WriteLine("index de \"phrase\" : " + myCollection.IndexOf("phrase"));
             Console.WriteLine("index de \"mais\" : " + myCollection.IndexOf("mais"));
+            Console.WriteLine("troisième mot : " + myCollection[3]);
+            myCollection[3] = "ou";
+            Console.WriteLine("troisième mot : " + myCollection[3]);
         }
     }
 }
