@@ -13,6 +13,13 @@ namespace Isen.DotnetCode
             var array = new String[] {"Je", "suis", "presque", "une", "phrase"};
             MyCollection myCollection = new MyCollection(array);
             Console.WriteLine(myCollection);
+            myCollection.Add("mais");
+            myCollection.Add("pas");
+            myCollection.Add("trop");
+            Console.WriteLine(myCollection);
+            myCollection.RemoveAt(3);
+            myCollection.RemoveAt(3);
+            Console.WriteLine(myCollection);
         }
     }
 }
