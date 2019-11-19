@@ -31,10 +31,7 @@ namespace Isen.Dotnet.Library
         /// return a greating message
         /// </summary>
         /// <returns></returns>
-        public string Great()
-        {
-            string greatMessage = "Hello " + Name + "!";
-            return greatMessage;
-        }
+        public string Great() => 
+            $"Hello {Name}!";
     }
 }

@@ -9,6 +9,10 @@ namespace Isen.DotnetCode
         {
             Hello hello = new Hello("World");
             Console.WriteLine(hello.Great());
+
+            var array = new String[] {"Je", "suis", "presque", "une", "phrase"};
+            MyCollection myCollection = new MyCollection(array);
+            Console.WriteLine(myCollection);
         }
     }
 }

@@ -42,6 +42,3 @@ la hiérarchie est
         * Isen.DotnetCode
     * README.md
 
-## Code du projet
-créer un fichier hello.cs dans le dossier des librairies
-
