@@ -20,6 +20,8 @@ namespace Isen.DotnetCode
             myCollection.RemoveAt(3);
             myCollection.RemoveAt(3);
             Console.WriteLine(myCollection);
+            Console.WriteLine("index de \"phrase\" : " + myCollection.IndexOf("phrase"));
+            Console.WriteLine("index de \"mais\" : " + myCollection.IndexOf("mais"));
         }
     }
 }

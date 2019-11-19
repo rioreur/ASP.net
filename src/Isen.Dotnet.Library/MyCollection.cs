@@ -48,6 +48,18 @@ namespace Isen.Dotnet.Library
             _values = tmpArray;
         }
 
+        public int IndexOf(String value)
+        {
+            for(var i = 0; i < Count; i++)
+            {
+                if (value == _values[i])
+                {
+                    return i;
+                }
+            }
+            return -1;
+        }
+
         // Override de la fonction ToString
         public override string ToString()
         {
