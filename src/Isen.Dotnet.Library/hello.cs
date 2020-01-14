@@ -1,37 +1,33 @@
-// Déclaration des improts
+// Déclaration des imports
 using System;
 
-// Déclaration du namespace (un bloc)
+// Déclaration du namespace, et c'est un bloc
 namespace Isen.Dotnet.Library
 {
-    // Déclaration des classes
-
+    // Déclaration de la classe (ou des classes)
+    
     /// <summary>
-    /// Cette classe dis "Bonjour"
+    /// Cette classe vous dit Bonjour.
     /// </summary>
     public class Hello
     {
         /// <summary>
-        /// Getter et Setter implicite de l'attribut "Name"
+        /// Nom de la personne
         /// </summary>
-        /// <param name="set;"></param>
-        /// <returns></returns>
-        public string Name { get; set; }
+        /// <value></value>
+        public string Name { get; private set; }
 
         /// <summary>
-        /// Constructeur de la class
+        /// Construit la classe Hello 
         /// </summary>
-        /// <param name="name"></param>
+        /// <param name="name">Le nom de la personne à saluer</param>
         public Hello(string name)
         {
             Name = name;
         }
 
-        /// <summary>
-        /// return a greating message
-        /// </summary>
-        /// <returns></returns>
-        public string Great() => 
-            $"Hello {Name}!";
-    }
+        // Syntaxe "Expression body"
+        public string Greet() => 
+            $"Hello, {Name}!";
+      }
 }
