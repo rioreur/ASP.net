@@ -14,6 +14,14 @@ namespace Isen.Dotnet.Library.Model
 
         public City ResidenceCity {get;set;}
         public int? ResidenceCityId {get;set;}
+
+        public string PhoneNumber {get;set;}
+        public string Mail {get;set;}
+
+        public MyCollection<RolePerson> RolePersons {get;set;}
+
+        public Service Service {get;set;}
+        public int? ServiceId {get;set;}
         
         [NotMapped] // ne pas générer ce champ dans la bdd
         public int? Age => DateOfBirth.HasValue ?

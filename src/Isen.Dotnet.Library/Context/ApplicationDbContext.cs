@@ -9,6 +9,8 @@ namespace Isen.Dotnet.Library.Context
         // Listes des classes modèle / tables
         public DbSet<Person> PersonCollection { get; set; }
         public DbSet<City> CityCollection { get; set; }
+        public DbSet<Service> ServiceCollection { get; set; }
+        public DbSet<Role> RoleCollection { get; set; }
 
         public ApplicationDbContext(
             [NotNullAttribute] DbContextOptions options) : 
@@ -36,6 +38,11 @@ namespace Isen.Dotnet.Library.Context
                 .HasOne(p => p.ResidenceCity)
                 .WithMany()
                 .HasForeignKey(p => p.ResidenceCityId);
+            // Pareil pour Service
+            modelBuilder.Entity<Person>()
+                .HasOne(p => p.Service)
+                .WithMany()
+                .HasForeignKey(p => p.ServiceId);
             // Et utiliser le champ Id comme clé primaire
             // Déclaration optionnelle, car le nommage
             // Id ou PersonId est reconnu comme convention
@@ -44,10 +51,28 @@ namespace Isen.Dotnet.Library.Context
                 .HasKey(p => p.Id);
 
             // Pareil pour City
-            modelBuilder
-                .Entity<City>()
+            modelBuilder.Entity<City>()
                 .ToTable(nameof(City))
                 .HasKey(c => c.Id);
+            // Pareil pour Service
+            modelBuilder.Entity<Service>()
+                .ToTable(nameof(Service))
+                .HasKey(s => s.Id);
+            // Pareil pour Role
+            modelBuilder.Entity<Role>()
+                .HasKey(p => p.Id);
+
+            // Création de la relation many with many entre Role et Person
+            modelBuilder.Entity<RolePerson>()
+                .HasKey(bc => new { bc.RoleId, bc.PersonId });  
+            modelBuilder.Entity<RolePerson>()
+                .HasOne(rp => rp.Role)
+                .WithMany(r => r.RolePersons)
+                .HasForeignKey(rp => rp.RoleId);  
+            modelBuilder.Entity<RolePerson>()
+                .HasOne(rp => rp.Person)
+                .WithMany(p => p.RolePersons)
+                .HasForeignKey(rp => rp.PersonId);
         }
 
     }
