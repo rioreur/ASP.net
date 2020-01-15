@@ -79,7 +79,7 @@
                         "Name"
                     ),
                     // Item par défaut
-                    "Sélectionnez un ville...",
+                    "Sélectionnez une ville...",
                     // Classe CSS
                     new { @class = "form-control" }
                 )
@@ -87,13 +87,64 @@
         </div>
     </div>
 
-    @{
-        var dateTimeString = "";
-        if (Model?.DateOfBirth != null) 
-            dateTimeString = Model.DateOfBirth.Value.ToString("dd/MM/yyyy");
-    }
-
+    <h3>Informations <small>de la personne</small></h3>
     <div class="row">
+        <div class="col-6">
+            <div class="form-group">
+                <label for="PhoneNumber">Numéro de téléphone</label>
+                <input
+                    id="PhoneNumber"
+                    type="text"
+                    class="form-control"
+                    placeholder="Numéro de téléphone"
+                    asp-for="PhoneNumber"
+                    value="@Model?.PhoneNumber" />
+            </div>
+        </div>
+        <div class="col-6">
+            <div class="form-group">
+                <label for="Mail">Mail</label>
+                <input
+                    id="Mail"
+                    type="text"
+                    class="form-control"
+                    placeholder="Mail"
+                    asp-for="Mail"
+                    value="@Model?.Mail" />
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-6">
+            <div class="form-group">
+                <label for="Service">Service</label>
+                @Html.DropDownListFor(
+                    // Quel est le champ du modèle que l'on 
+                    // met à jour avec cette liste ?
+                    p => p.ServiceId,
+                    // Liste des éléments
+                    new SelectList(
+                        // La liste
+                        _context.ServiceCollection,
+                        // Le champ d'id
+                        "Id",
+                        // Le champ de libellé
+                        "Name"
+                    ),
+                    // Item par défaut
+                    "Sélectionnez un service...",
+                    // Classe CSS
+                    new { @class = "form-control" }
+                )
+            </div>
+        </div>
+
+        @{
+            var dateTimeString = "";
+            if (Model?.DateOfBirth != null) 
+                dateTimeString = Model.DateOfBirth.Value.ToString("dd/MM/yyyy");
+        }
+
         <div class="col-12">
             <div class="form-group">
                 <label for="DateOfBirth">Date de naissance</label>

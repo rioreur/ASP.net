@@ -60,6 +60,7 @@ namespace Isen.Dotnet.Library.Context
                 .HasKey(s => s.Id);
             // Pareil pour Role
             modelBuilder.Entity<Role>()
+                .ToTable(nameof(Role))
                 .HasKey(p => p.Id);
 
             // Création de la relation many with many entre Role et Person
