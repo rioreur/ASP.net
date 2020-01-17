@@ -24,7 +24,7 @@ namespace Isen.Dotnet.Web.Controllers
                 .Include(p => p.BirthCity)
                 .Include(p => p.ResidenceCity)
                 .Include(p => p.Service)
-                .Include(p => p.RolePersons)
+                .Include("RolePersons.Role")
                 // Filtrer sur les villes qui commencent par Toul
                 //.Where(p => p.BirthCity.StartsWith("Toul"))
                 // Trier par ordre alpha des villes

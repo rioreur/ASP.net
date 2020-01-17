@@ -19,10 +19,10 @@ namespace Isen.Dotnet.Library.Model
         public string PhoneNumber {get;set;}
         public string Mail {get;set;}
 
-        public MyCollection<RolePerson> RolePersons {get;set;}
-
         public Service Service {get;set;}
         public int? ServiceId {get;set;}
+
+        public MyCollection<RolePerson> RolePersons {get;set;}
         
         [NotMapped] // ne pas générer ce champ dans la bdd
         public int? Age => DateOfBirth.HasValue ?
@@ -36,13 +36,13 @@ namespace Isen.Dotnet.Library.Model
 
         public string Roles() {
             var sb = new StringBuilder();
-            for(var i = 0; i < RolePersons?.Count; i++)
+            sb.Append(RolePersons[0]?.Role?.Name);
+            for(var i = 1; i < RolePersons?.Count; i++)
             {
-                sb.Append(RolePersons[i]?.Role?.Name);
                 sb.Append(", ");
+                sb.Append(RolePersons[i]?.Role?.Name);
             }
             return sb.ToString();
         }
-        
     }
 }

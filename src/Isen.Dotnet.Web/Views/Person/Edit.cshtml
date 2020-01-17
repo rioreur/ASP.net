@@ -139,6 +139,30 @@
             </div>
         </div>
 
+        <div class="col-6">
+            <label for="Role">Roles</label>
+            @using (Html.BeginForm("Index", "Home"))
+            {
+                //@Html.CheckBoxListFor("RolePersons.Role")
+                foreach (var item in _context.RoleCollection)
+                {
+                    <div class="checkbox">
+                        <label>
+                            <input 
+                                type="checkbox"
+                                name="RolePersons.Role"
+                                value="@item.Name"
+                                @if(Model.Roles().Contains(item.Name))
+                                {
+                                    <text> checked </text> 
+                                } 
+                            /> @item.Name
+                        </label>
+                    </div>
+                }
+            }
+        </div>
+
         @{
             var dateTimeString = "";
             if (Model?.DateOfBirth != null) 
