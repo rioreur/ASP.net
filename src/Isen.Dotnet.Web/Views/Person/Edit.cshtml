@@ -141,9 +141,10 @@
 
         <div class="col-6">
             <label for="Role">Roles</label>
+
             @using (Html.BeginForm("Index", "Home"))
             {
-                //@Html.CheckBoxListFor("RolePersons.Role")
+
                 foreach (var item in _context.RoleCollection)
                 {
                     <div class="checkbox">
@@ -155,7 +156,7 @@
                                 @if(Model.Roles().Contains(item.Name))
                                 {
                                     <text> checked </text> 
-                                } 
+                                }
                             /> @item.Name
                         </label>
                     </div>

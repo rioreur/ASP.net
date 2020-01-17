@@ -24,6 +24,30 @@
             </div>
         </div>
         <div class="col-12">
+            <label for="Person">Persons</label>
+
+            @using (Html.BeginForm("Index", "Home"))
+            {
+
+                foreach (var item in _context.PersonCollection)
+                {
+                    <div class="checkbox">
+                        <label>
+                            <input 
+                                type="checkbox"
+                                name="RolePersons.Role"
+                                value="@item.FirstName @item.LastName"
+                                @if(Model.Persons().Contains(item.FirstName + " " + item.LastName))
+                                {
+                                    <text> checked </text> 
+                                }
+                            /> @item.FirstName  @item.LastName
+                        </label>
+                    </div>
+                }
+            }
+        </div>
+        <div class="col-18">
             <button type="submit" class="btn btn-primary">Valider</button>
             <a class="btn btn-secondary" asp-action="Index">Annuler</a>
         </div>
